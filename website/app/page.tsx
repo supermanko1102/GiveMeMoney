@@ -2,10 +2,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import { Search, Globe, X, Trophy, DollarSign, Users } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import { DonateSheet } from "@/components/donate-sheet";
 
 interface Contributor {
   id: string;
@@ -19,25 +18,25 @@ interface Contributor {
 const TOP_CONTRIBUTORS: Contributor[] = [
   {
     id: "1",
-    name: "ENTIRELESS.COM",
-    amount: 20,
-    message: "ENTIRELESS CONNECTS TOP TALENT WITH...",
-    avatar: "/placeholder.svg", // Will need real images
+    name: "不願具名的乾爹",
+    amount: 200,
+    message: "這網站太廢了，給你錢去重修網頁設計。",
+    avatar: "/placeholder.svg",
     link: "https://entireless.com",
   },
   {
     id: "2",
-    name: "CREATING BETTER DAYS",
-    amount: 10,
-    message: "OUR GUMMIES MADE ME DO...",
+    name: "加密貨幣韭菜",
+    amount: 50,
+    message: "比起被交易所割，我寧願被你明著搶。",
     avatar: "/placeholder.svg",
     link: "https://example.com",
   },
   {
     id: "3",
-    name: "CLAY UNICORN",
+    name: "為了測試",
     amount: 10,
-    message: "HAVE A BEER.",
+    message: "我只是想看這按鈕是不是真的能按。",
     avatar: "/placeholder.svg",
     link: "https://example.com",
   },
@@ -46,41 +45,41 @@ const TOP_CONTRIBUTORS: Contributor[] = [
 const RECENT_CONTRIBUTORS: Contributor[] = [
   {
     id: "4",
-    name: "ENTIRELESS.COM",
-    amount: 20,
-    message: "ENTIRELESS CONNECTS TOP TALENT WITH...",
+    name: "路過的富豪",
+    amount: 100,
+    message: "這點錢我掉在地上都懶得撿。",
     avatar: "/placeholder.svg",
     link: "https://entireless.com",
   },
   {
     id: "5",
-    name: "AI STARTUP SEO",
-    amount: 1,
-    message: "🔥HOT🔥 SUPERCHARGE YOUR AI SAAS TECH...",
+    name: "AI 創業家",
+    amount: 5,
+    message: "可以幫我的 AI 產品掛個廣告嗎？拜託了...",
     avatar: "/placeholder.svg",
     link: "https://example.com",
   },
   {
     id: "6",
-    name: "FEEDBACKWIDGET",
+    name: "月底吃土人",
     amount: 1,
-    message: "Simple feedback for all your projects",
+    message: "這是我的午餐錢，還我...",
     avatar: "/placeholder.svg",
     link: "https://example.com",
   },
   {
     id: "7",
-    name: "WISHKIT",
+    name: "只有一塊錢",
     amount: 1,
-    message: "THE BEST IOS APP FEATURE IDEAS",
+    message: "笑死，真的有人會匯款喔？",
     avatar: "/placeholder.svg",
     link: "https://example.com",
   },
   {
     id: "8",
-    name: "CREATING BETTER DAYS",
+    name: "善心人士",
     amount: 10,
-    message: "OUR GUMMIES MADE ME DO IT",
+    message: "拿去買藥吃，不用謝。",
     avatar: "/placeholder.svg",
     link: "https://example.com",
   },
@@ -93,21 +92,23 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-black/50 backdrop-blur-xl">
         <div className="container mx-auto flex h-16 items-center justify-between px-4">
           <nav className="flex items-center gap-6 text-sm font-medium text-muted-foreground">
-            <Link href="#" className="hover:text-white transition-colors">PRESS</Link>
-            <Link href="#" className="hover:text-white transition-colors">MEET THE MILLIONAIRE</Link>
-            <Link href="#" className="hover:text-white transition-colors">FAQ</Link>
+            <Link href="#" className="hover:text-white transition-colors">這合法嗎？</Link>
+            <Link href="#" className="hover:text-white transition-colors">認識主謀</Link>
+            <Link href="#" className="hover:text-white transition-colors">別問很可怕</Link>
           </nav>
           
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <h1 className="text-xl font-bold tracking-tighter">One Million Scam</h1>
+            <h1 className="text-xl font-bold tracking-tighter">給我錢.com</h1>
           </div>
 
           <div className="flex items-center gap-4">
+            <DonateSheet>
+              <Button variant="ghost" className="text-sm font-medium hover:text-white hover:bg-white/10">
+                閉嘴，拿錢
+              </Button>
+            </DonateSheet>
             <Button variant="ghost" className="text-sm font-medium hover:text-white hover:bg-white/10">
-              GIVE ME MONEY
-            </Button>
-            <Button variant="ghost" className="text-sm font-medium hover:text-white hover:bg-white/10">
-              THE F**K IS THIS?
+              這系殺小?
             </Button>
           </div>
         </div>
@@ -117,22 +118,22 @@ export default function Home() {
         {/* Intro Section */}
         <div className="space-y-6">
           <h1 className="text-6xl font-extrabold tracking-tight lg:text-8xl">
-            The Hall of Shameless
+            盤子名人堂
           </h1>
           <p className="max-w-2xl text-xl text-muted-foreground">
-            These legends didn't buy a $9.95 PDF on "How to grow your SaaS" they just gave me money for no reason. Be like them.
+             這些傳奇人物很聰明，他們沒有去買那些「24小時財富自由」的線上課程。他們選擇了更直接的方式——<b>直接把錢白送給我</b>。想要證明你的財力？這是唯一的機會。
           </p>
 
           <div className="flex items-center gap-8 pt-8">
             <div className="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
               <Users className="w-5 h-5 text-green-500" />
               <span className="text-2xl font-bold text-white">22</span>
-              <span className="text-sm text-muted-foreground uppercase tracking-wider">"Customers"</span>
+              <span className="text-sm text-muted-foreground uppercase tracking-wider">位快樂的受害者</span>
             </div>
             <div className="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-lg border border-white/10">
               <DollarSign className="w-5 h-5 text-green-500" />
               <span className="text-2xl font-bold text-white">$63.65</span>
-              <span className="text-sm text-muted-foreground uppercase tracking-wider">Scammed So Far</span>
+              <span className="text-sm text-muted-foreground uppercase tracking-wider">我的遊艇基金</span>
             </div>
           </div>
         </div>
@@ -142,13 +143,13 @@ export default function Home() {
           <div className="relative w-full sm:w-96">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input 
-              placeholder="SEARCH..." 
-              className="pl-10 bg-transparent border-white/20 text-white placeholder:text-muted-foreground focus-visible:ring-green-500 uppercase"
+              placeholder="搜尋你的蠢朋友..." 
+              className="pl-10 bg-transparent border-white/20 text-white placeholder:text-muted-foreground focus-visible:ring-green-500"
             />
           </div>
           <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <Trophy className="w-4 h-4 text-yellow-500" />
-            <span>TOP CONTRIBUTORS</span>
+            <span>智商稅榮譽榜</span>
           </div>
         </div>
 
@@ -167,7 +168,7 @@ export default function Home() {
                    ${index === 1 ? 'border-zinc-400 text-zinc-400' : ''}
                    ${index === 2 ? 'border-amber-700 text-amber-700' : ''}
                  `}>
-                    #{index + 1}
+                    No. {index + 1}
                  </Badge>
               </div>
               
@@ -187,8 +188,8 @@ export default function Home() {
                  </div>
               </CardHeader>
               <CardContent>
-                <p className="text-xs text-zinc-400 font-medium leading-relaxed uppercase">
-                    {contributor.message}
+                <p className="text-xs text-zinc-400 font-medium leading-relaxed">
+                    "{contributor.message}"
                 </p>
               </CardContent>
               <CardFooter className="pt-0 pb-4">
@@ -212,7 +213,7 @@ export default function Home() {
                  <div className="aspect-video w-full bg-zinc-900 relative overflow-hidden group-hover:opacity-90 transition-opacity">
                     {/* Placeholder for post image */}
                     <div className="absolute inset-0 bg-gradient-to-br from-zinc-800 to-black flex items-center justify-center text-zinc-700">
-                        <span className="font-bold text-2xl opacity-20">IMG</span>
+                        <span className="font-bold text-2xl opacity-20">圖片</span>
                     </div>
                     
                     <div className="absolute top-2 right-2">
@@ -224,8 +225,8 @@ export default function Home() {
 
                  <CardContent className="p-4 space-y-3">
                     <h3 className="font-bold text-white text-sm uppercase truncate">{contributor.name}</h3>
-                    <p className="text-xs text-zinc-400 line-clamp-2 min-h-[2.5em] uppercase">
-                        {contributor.message}
+                    <p className="text-xs text-zinc-400 line-clamp-2 min-h-[2.5em]">
+                        "{contributor.message}"
                     </p>
                  </CardContent>
                  
